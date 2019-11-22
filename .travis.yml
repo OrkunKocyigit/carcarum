@@ -1,0 +1,36 @@
+language: node_js
+node_js:
+  - 12
+env:
+  - trusty
+install:
+  - npm install -g npm
+  - npm ci
+branches:
+  except:
+    - gh-pages
+stages:
+  - lint
+  - test
+  - build
+  - deploy
+jobs:
+  include:
+    - stage: lint
+      script:
+        - npm run lint
+    - stage: test
+      script:
+        - npm run test:unit
+    - stage: build
+      script:
+        - npm run build
+    - stage: deploy
+      script: skip
+      deploy:
+        provider: pages
+        skip_cleanup: true
+        github_token: $GITHUB_TOKEN
+        keep_history: true
+        on:
+          branch: master
