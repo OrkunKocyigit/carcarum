@@ -1,5 +1,6 @@
 <template>
   <div class="ecalc">
+    <div></div>
   </div>
 </template>
 
