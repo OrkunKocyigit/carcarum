@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - lts/12
+  - 12
 env:
   - trusty
 install:
@@ -13,6 +13,7 @@ stages:
   - lint
   - test
   - build
+  - deploy
 jobs:
   include:
     - stage: lint
@@ -24,3 +25,12 @@ jobs:
     - stage: build
       script:
         - npm run build
+    - stage: deploy
+      script: skip
+      deploy:
+        provider: pages
+        skip_cleanup: true
+        github_token: $GITHUB_TOKEN
+        keep_history: true
+        on:
+          branch: master
