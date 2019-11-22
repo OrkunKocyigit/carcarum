@@ -1,0 +1,26 @@
+language: node_js
+node_js:
+  - lts/12
+env:
+  - trusty
+install:
+  - npm install -g npm
+  - npm ci
+branches:
+  except:
+    - gh-pages
+stages:
+  - lint
+  - test
+  - build
+jobs:
+  include:
+    - stage: lint
+      script:
+        - npm run lint
+    - stage: test
+      script:
+        - npm run test:unit
+    - stage: build
+      script:
+        - npm run build
