@@ -1,10 +1,16 @@
 <template>
   <div class="ecalc">
-    <div></div>
+    <CharSelector></CharSelector>
   </div>
 </template>
 
 <script>
+import CharSelector from '../components/CharSelector'
+export default {
+  components: {
+    CharSelector: CharSelector
+  }
+}
 </script>
 
 <style scoped>
