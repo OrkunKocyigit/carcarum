@@ -12,9 +12,13 @@
       </template>
 
       <template v-slot:cell(details)="row">
-        <b-button size="sm" class="mb-1" variant="primary">
-          Details
+        <b-button size="sm" class="mb-1" variant="primary" @click="row.toggleDetails">
+          {{ row.detailsShowing ? 'Hide' : 'Show' }} Details
         </b-button>
+      </template>
+
+      <template v-slot:row-details="row">
+        <SummaryTable />
       </template>
 
       <template v-slot:cell(delete)="data">
@@ -27,12 +31,16 @@
 </template>
 
 <script>
+import SummaryTable from '../components/SummaryTable'
 import charData from '../assets/chars'
 import summonData from '../assets/summons'
 
 export default {
   name: 'EvokerTable',
   props: ['evokerList', 'removeEvoker'],
+  components: {
+    'SummaryTable': SummaryTable
+  },
   data: function () {
     return {
       fields: [
