@@ -2,12 +2,12 @@
  <div>
    <b-form @submit="onEvokerAdded">
      <div class="row">
-       <b-form-group class="col" id="char-select-group" label="Evoker:" label-for="select-evoker">
+       <b-form-group class="col-lg-6 col-sm-12" id="char-select-group" label="Evoker:" label-for="select-evoker">
          <b-form-select v-model="selectedChar" id="select-evoker" :disabled="haveAll">
            <option v-for="char in filteredChars" :value="char.id" :key="char.id">{{char.name}}</option>
          </b-form-select>
        </b-form-group>
-       <b-form-group class="col" id="stage-select-group" label="Current Stage:" label-for="select-stage">
+       <b-form-group class="col-lg-6 col-sm-12" id="stage-select-group" label="Current Stage:" label-for="select-stage">
          <b-form-select v-model="selectedStage" id="select-stage" :options="stageOptions" :disabled="haveAll" />
        </b-form-group>
      </div>
@@ -38,17 +38,17 @@ export default {
         // No Summon
         stages.push({ value: 0, text: 'Nothing' })
         // SR Summon
-        for (let i = 1; i <= 3; i++) {
-          stages.push({ value: i, text: `${i}* SR Summon` })
+        for (let i = 0; i <= 3; i++) {
+          stages.push({ value: i + 1, text: `${i}* SR Summon` })
         }
         // SSR Summon
         for (let i = 3; i <= 5; i++) {
-          stages.push({ value: i + 1, text: `${i}* SSR Summon` })
+          stages.push({ value: i + 2, text: `${i}* SSR Summon` })
         }
         // SSR Char
         let charMax = this.filteredChars.filter((x) => (x.id === this.selectedChar))[0].maxStage
         for (let i = 0; i <= charMax; i++) {
-          stages.push({ value: i + 7, text: `${i}* SSR Char` })
+          stages.push({ value: i + 8, text: `${i}* SSR Character` })
         }
       }
       return stages

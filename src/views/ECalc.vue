@@ -1,14 +1,17 @@
 <template>
   <div class="ecalc">
     <CharSelector :addEvoker="onEvokerAdded" :filteredEvokers="filterEvokerList"/>
+    <EvokerTable :evokerList="evokers" class="mt-1"/>
   </div>
 </template>
 
 <script>
 import CharSelector from '../components/CharSelector'
+import EvokerTable from '../components/EvokerTable'
 export default {
   components: {
-    CharSelector: CharSelector
+    CharSelector: CharSelector,
+    EvokerTable: EvokerTable
   },
   data: function () {
     return {
