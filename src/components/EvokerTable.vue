@@ -18,7 +18,8 @@
       </template>
 
       <template v-slot:row-details="row">
-        <SummaryTable />
+        <SummaryTable
+          :currentStage="row.item.currentStage"/>
       </template>
 
       <template v-slot:cell(delete)="data">

@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "Sephira Stone",
+    "img": "../assets/icons/Sephira_Stone.jpg",
+    "tip": "Obtained from events and randomly on arcarum"
+  },
+  {
+    "id": 2,
+    "name": "Aquaborne Astra",
+    "img": "../assets/icons/Aquaborne_Astra.jpg",
+    "tip": "Obtained from water events and randomly on arcarum"
+  }
+]
