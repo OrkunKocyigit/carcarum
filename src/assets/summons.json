@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Justice",
+    "minStage": 0,
+    "maxStage": 6
+  },
+  {
+    "id": 2,
+    "name": "The Hanged Man",
+    "minStage": 0,
+    "maxStage": 6
+  },
+  {
+    "id": 3,
+    "name": "Death",
+    "minStage": 0,
+    "maxStage": 6
+  },
+  {
+    "id": 4,
+    "name": "Temperance",
+    "minStage": 0,
+    "maxStage": 6
+  },
+  {
+    "id": 5,
+    "name": "The Devil",
+    "minStage": 0,
+    "maxStage": 6
+  },
+  {
+    "id": 6,
+    "name": "The Tower",
+    "minStage": 0,
+    "maxStage": 6
+  },
+  {
+    "id": 7,
+    "name": "The Star",
+    "minStage": 0,
+    "maxStage": 6
+  },
+  {
+    "id": 8,
+    "name": "The Moon",
+    "minStage": 0,
+    "maxStage": 6
+  },
+  {
+    "id": 9,
+    "name": "The Sun",
+    "minStage": 0,
+    "maxStage": 6
+  },
+  {
+    "id": 10,
+    "name": "Judgement",
+    "minStage": 0,
+    "maxStage": 6
+  }
+]

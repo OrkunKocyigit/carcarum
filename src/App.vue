@@ -11,7 +11,7 @@
 
 <style>
   #app {
-    color: #F5F4F5;
+    color: #2E333E;
   }
 
   #nav {
