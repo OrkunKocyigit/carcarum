@@ -11,7 +11,7 @@
          <b-form-select v-model="selectedStage" id="select-stage" :options="stageOptions" :disabled="haveAll" />
        </b-form-group>
      </div>
-     <b-button block type="submit" variant="secondary">Add Evoker</b-button>
+     <b-button block type="submit" variant="secondary" :disabled="haveAll">Add Evoker</b-button>
    </b-form>
  </div>
 </template>
@@ -59,14 +59,19 @@ export default {
   },
   methods: {
     onEvokerAdded: function () {
-      let charIndex = this.selectedChar
-      if (this.filteredChars.length > 1) {
+      this.addEvoker(this.selectedChar, this.selectedStage)
+    }
+  },
+  watch: {
+    filteredEvokers: function (val) {
+      if (this.filteredChars.length > 0) {
         this.haveAll = false
-        this.selectedChar = this.filteredChars.filter((x) => (x.id !== charIndex))[0].id
+        if (val.includes(this.selectedChar)) {
+          this.selectedChar = this.filteredChars[0].id
+        }
       } else {
         this.haveAll = true
       }
-      this.addEvoker(charIndex, this.selectedStage)
     }
   }
 }

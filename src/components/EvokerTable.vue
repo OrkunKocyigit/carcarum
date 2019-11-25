@@ -17,8 +17,8 @@
         </b-button>
       </template>
 
-      <template v-slot:cell(delete)="row">
-        <b-button size="sm" class="mb-1" variant="danger">
+      <template v-slot:cell(delete)="data">
+        <b-button size="sm" class="mb-1" variant="danger" @click="removeEvoker(data.item.id)">
           Delete
         </b-button>
       </template>
@@ -32,7 +32,7 @@ import summonData from '../assets/summons'
 
 export default {
   name: 'EvokerTable',
-  props: ['evokerList'],
+  props: ['evokerList', 'removeEvoker'],
   data: function () {
     return {
       fields: [

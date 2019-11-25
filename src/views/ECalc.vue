@@ -1,7 +1,7 @@
 <template>
   <div class="ecalc">
     <CharSelector :addEvoker="onEvokerAdded" :filteredEvokers="filterEvokerList"/>
-    <EvokerTable :evokerList="evokers" class="mt-1"/>
+    <EvokerTable :evokerList="evokers" :removeEvoker="onEvokerRemoved" class="mt-1"/>
   </div>
 </template>
 
@@ -21,6 +21,13 @@ export default {
   methods: {
     onEvokerAdded: function (evokerId, currentStage) {
       this.evokers.push({ id: evokerId, currentStage: currentStage })
+    },
+    onEvokerRemoved: function (evokerId) {
+      for (let i = 0; i < this.evokers.length; i++) {
+        if (this.evokers[i].id === evokerId) {
+          this.evokers.splice(i, 1)
+        }
+      }
     }
   },
   computed: {
