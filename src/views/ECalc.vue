@@ -1,7 +1,7 @@
 <template>
   <div class="ecalc">
     <CharSelector :addEvoker="onEvokerAdded" :filteredEvokers="filterEvokerList"/>
-    <EvokerTable v-if="tableVisible" :evokerList="evokers" :removeEvoker="onEvokerRemoved" class="mt-1"/>
+    <EvokerTable v-if="tableVisible" :evokerList="evokers" :removeEvoker="onEvokerRemoved" :triggerTargetChange="onTargetChanged" class="mt-1"/>
   </div>
 </template>
 
@@ -22,8 +22,8 @@ export default {
     this.onLoad()
   },
   methods: {
-    onEvokerAdded: function (evokerId, currentStage) {
-      this.evokers.push({ id: evokerId, currentStage: currentStage })
+    onEvokerAdded: function (evokerId, currentStage, targetStage) {
+      this.evokers.push({ id: evokerId, currentStage: currentStage, targetStage: targetStage })
       this.onSave()
     },
     onEvokerRemoved: function (evokerId) {
@@ -32,6 +32,10 @@ export default {
           this.evokers.splice(i, 1)
         }
       }
+      this.onSave()
+    },
+    onTargetChanged: function (evokerId, newTarget) {
+      this.evokers.find((x) => (x.id === evokerId)).targetStage = newTarget
       this.onSave()
     },
     onSave: function () {

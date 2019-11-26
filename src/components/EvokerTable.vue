@@ -20,6 +20,8 @@
       <template v-slot:row-details="row">
         <SummaryTable
           :currentStage="row.item.currentStage"
+          :targetStage="evokerList.find((x) => (x.id === row.item.id)).targetStage"
+          :triggerTargetChange="triggerTargetChange.bind(this, row.item.id)"
           :char="chars.find((x) => (x.id === row.item.id))"/>
       </template>
 
@@ -40,7 +42,7 @@ import getString from '../translate'
 
 export default {
   name: 'EvokerTable',
-  props: ['evokerList', 'removeEvoker'],
+  props: ['evokerList', 'removeEvoker', 'triggerTargetChange'],
   components: {
     'SummaryTable': SummaryTable
   },

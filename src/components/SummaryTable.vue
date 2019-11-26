@@ -9,7 +9,7 @@
             </b-form-select>
           </b-form-group>
           <b-form-group class="col-lg-5 col-sm-6" id="stage-select-group" label="Target Stage:" label-for="select-target">
-            <b-form-select v-model="targetStage" id="select-target" :options="upgradeOptions"/>
+            <b-form-select :value="targetStage" id="select-target" :options="upgradeOptions" @change="onTargetChanged"/>
           </b-form-group>
           <b-form-group class="mt-auto col-lg-2 col-sm-12" id="char-calc-group">
             <b-button block id="button-calc" variant="secondary">Calculate</b-button>
@@ -28,16 +28,18 @@ import MaterialsTable from './MaterialsTable'
 export default {
   name: 'SummaryTable',
   components: { MaterialsTable },
-  props: ['currentStage', 'char'],
+  props: ['currentStage', 'targetStage', 'char', 'triggerTargetChange'],
   data: function () {
     return {
-      targetStage: Math.min(this.currentStage + 1, this.char.maxStage),
       hasResult: false
     }
   },
   methods: {
     getTranslation: getString,
-    getStageNames: stageNameGenerator
+    getStageNames: stageNameGenerator,
+    onTargetChanged: function (val) {
+      this.triggerTargetChange(val)
+    }
   },
   computed: {
     upgradeOptions: function () {

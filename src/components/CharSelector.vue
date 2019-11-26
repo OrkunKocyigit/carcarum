@@ -52,7 +52,7 @@ export default {
   },
   methods: {
     onEvokerAdded: function () {
-      this.addEvoker(this.selectedChar, this.selectedStage)
+      this.addEvoker(this.selectedChar, this.selectedStage, Math.min(this.chars.find((x) => (x.id === this.selectedChar)).maxStage, this.selectedStage + 1))
     },
     getTranslation: getString,
     getStageNames: stageNameGenerator
