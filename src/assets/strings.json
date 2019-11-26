@@ -123,5 +123,11 @@
   },
   "table-label-delete": {
     "en": "Delete"
+  },
+  "tip-sephira-stone": {
+    "en": "Obtained from events, randomly on arcarum or from arcarum shop for 1500 points"
+  },
+  "tip-astra": {
+    "en": "Obtained from events, randomly on arcarum or from arcarum shop for 2000 points"
   }
 }

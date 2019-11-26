@@ -12,11 +12,11 @@
             <b-form-select :value="targetStage" id="select-target" :options="upgradeOptions" @change="onTargetChanged"/>
           </b-form-group>
           <b-form-group class="mt-auto col-lg-2 col-sm-12" id="char-calc-group">
-            <b-button block id="button-calc" variant="secondary">Calculate</b-button>
+            <b-button block id="button-calc" variant="secondary" @click="calculateUpgrade">Calculate</b-button>
           </b-form-group>
         </div>
       </b-form>
-      <MaterialsTable />
+      <MaterialsTable v-if="hasResult"/>
     </div>
   </b-card>
 </template>
@@ -25,13 +25,15 @@
 import getString from '../translate'
 import stageNameGenerator from '../global'
 import MaterialsTable from './MaterialsTable'
+import Recipes from '../assets/recipes'
 export default {
   name: 'SummaryTable',
   components: { MaterialsTable },
   props: ['currentStage', 'targetStage', 'char', 'triggerTargetChange'],
   data: function () {
     return {
-      hasResult: false
+      hasResult: false,
+      recipes: Recipes
     }
   },
   methods: {
@@ -39,6 +41,34 @@ export default {
     getStageNames: stageNameGenerator,
     onTargetChanged: function (val) {
       this.triggerTargetChange(val)
+    },
+    calculateUpgrade: function () {
+      let mats = {}
+      // Get start char recipe
+      let startRecipe = this.recipes.find((x) => (this.char.startId === x.id))
+      if (startRecipe) {
+        let recipes = []
+        recipes.push(startRecipe)
+        // Iterate until next is not defined
+        while (recipes[recipes.length - 1].hasOwnProperty('next')) {
+          let next = this.recipes.find((x) => (recipes[recipes.length - 1].next === x.id))
+          if (next) {
+            recipes.push(next)
+          } else {
+            break
+          }
+        }
+        let materialList = recipes.map((x) => (x.materials)).flat()
+        for (let m of materialList) {
+          if (mats.hasOwnProperty(m.id)) {
+            mats[m.id] += m.count
+          } else {
+            mats[m.id] = m.count
+          }
+        }
+        this.hasResult = true
+      }
+      return mats
     }
   },
   computed: {

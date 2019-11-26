@@ -3,12 +3,42 @@
     "id": 1,
     "name": "Sephira Stone",
     "img": "../assets/icons/Sephira_Stone.jpg",
-    "tip": "Obtained from events and randomly on arcarum"
+    "tip": "tip-sephira-stone"
   },
   {
     "id": 2,
     "name": "Aquaborne Astra",
     "img": "../assets/icons/Aquaborne_Astra.jpg",
-    "tip": "Obtained from water events and randomly on arcarum"
+    "tip": "tip-astra"
+  },
+  {
+    "id": 3,
+    "name": "Justice Idean",
+    "img": "../assets/icons/Justice_Idean.jpg",
+    "tip": "tip-idean"
+  },
+  {
+    "id": 4,
+    "name": "Water Verum Proof",
+    "img": "../assets/icons/Justice_Idean.jpg",
+    "tip": "tip-idean"
+  },
+  {
+    "id": 5,
+    "name": "Chaotic Haze",
+    "img": "../assets/icons/Chaotic_Haze.jpg",
+    "tip": "tip-haze"
+  },
+  {
+    "id": 6,
+    "name": "Flawless Prism",
+    "img": "../assets/icons/Flawless_Prism.jpg",
+    "tip": "tip-prism"
+  },
+  {
+    "id": 7,
+    "name": "Leviathan Omega Anima",
+    "img": "../assets/icons/Leviathan_Omega_Anima.jpg",
+    "tip": "tip-omega-anima"
   }
 ]

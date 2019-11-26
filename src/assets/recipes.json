@@ -1,15 +1,36 @@
 [
   {
-  "id": 1,
-  "materials": [
-    {
-      "id": 1,
-      "count": 2
-    },
-    {
-      "id": 2,
-      "count": 3
-    }
-  ]
+    "id": 1,
+    "materials": [
+      {
+        "id": 1,
+        "count": 2
+      },
+      {
+        "id": 2,
+        "count": 3
+      },
+      {
+        "id": 3,
+        "count": 2
+      },
+      {
+        "id": 4,
+        "count": 6
+      },
+      {
+        "id": 5,
+        "count": 1
+      },
+      {
+        "id": 6,
+        "count": 100
+      },
+      {
+        "id": 7,
+        "count": 30
+      }
+    ],
+    "next": 2
   }
 ]
