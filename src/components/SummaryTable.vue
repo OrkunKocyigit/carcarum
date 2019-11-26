@@ -5,11 +5,11 @@
         <div class="row">
           <b-form-group class="col-lg-6 col-sm-12" id="char-select-group" label="Current Stage:" label-for="select-current">
             <b-form-select v-model="currentStage" id="select-current" disabled>
-              <option :value="currentStage">{{getStageName(currentStage)}}</option>
+              <option :value="currentStage">{{getTranslation('stages', 'en', currentStage)}}</option>
             </b-form-select>
           </b-form-group>
           <b-form-group class="col-lg-6 col-sm-12" id="stage-select-group" label="Target Stage:" label-for="select-target">
-            <b-form-select v-model="targetStage" id="select-target" :options="stageOptions"/>
+            <b-form-select v-model="targetStage" id="select-target" :options="upgradeOptions"/>
           </b-form-group>
         </div>
         <b-button block type="submit" variant="secondary">Add Evoker</b-button>
@@ -19,29 +19,30 @@
 </template>
 
 <script>
+import getString from '../translate'
+import stageNameGenerator from '../global'
 export default {
   name: 'SummaryTable',
-  props: ['currentStage'],
+  props: ['currentStage', 'char'],
   data: function () {
     return {
-      targetStage: Math.max(this.currentStage + 1, 13)
+      targetStage: Math.min(this.currentStage + 1, this.char.maxStage)
     }
   },
   methods: {
-    getStageName: function (currentStage) {
-      let stageName
-      if (currentStage === 0) {
-        stageName = 'Nothing'
-      } else if (currentStage < 5) {
-        stageName = `${currentStage - 1}* SR Summon`
-      } else if (currentStage < 8) {
-        stageName = `${currentStage - 2}* SSR Summon`
-      } else if (currentStage < 14) {
-        stageName = `${currentStage - 8}* SSR Character`
-      } else {
-        stageName = 'Unknown'
+    getTranslation: getString,
+    getStageNames: stageNameGenerator
+  },
+  computed: {
+    upgradeOptions: function () {
+      let stages = []
+      let generator = stageNameGenerator(this.currentStage + 1, this.char.maxStage, 'en')
+      let result = generator.next()
+      for (let i = this.currentStage + 1; !result.done; i++) {
+        stages.push({ value: i, text: result.value })
+        result = generator.next()
       }
-      return stageName
+      return stages
     }
   }
 }

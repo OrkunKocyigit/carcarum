@@ -4,7 +4,7 @@
     "name": "Maria Theresa",
     "summonId": 1,
     "minStage": 0,
-    "maxStage": 4,
+    "maxStage": 12,
     "startId": 1
   },
   {
@@ -12,7 +12,7 @@
     "name": "Caim",
     "summonId": 2,
     "minStage": 0,
-    "maxStage": 4,
+    "maxStage": 12,
     "startId": 2
   },
   {
@@ -20,7 +20,7 @@
     "name": "Nier",
     "summonId": 3,
     "minStage": 0,
-    "maxStage": 4,
+    "maxStage": 12,
     "startId": 3
   },
   {
@@ -28,7 +28,7 @@
     "name": "Estarriola",
     "summonId": 4,
     "minStage": 0,
-    "maxStage": 4,
+    "maxStage": 12,
     "startId": 4
   },
   {
@@ -36,7 +36,7 @@
     "name": "Fraux",
     "summonId": 5,
     "minStage": 0,
-    "maxStage": 4,
+    "maxStage": 12,
     "startId": 5
   },
   {
@@ -44,39 +44,39 @@
     "name": "Lobelia",
     "summonId": 6,
     "minStage": 0,
-    "maxStage": 4,
-    "startId": 2
+    "maxStage": 12,
+    "startId": 6
   },
   {
     "id": 7,
     "name": "Geisenborger",
     "summonId": 7,
     "minStage": 0,
-    "maxStage": 4,
-    "startId": 6
+    "maxStage": 12,
+    "startId": 7
   },
   {
     "id": 8,
     "name": "Haaselia",
     "summonId": 8,
     "minStage": 0,
-    "maxStage": 4,
-    "startId": 1
+    "maxStage": 12,
+    "startId": 8
   },
   {
     "id": 9,
     "name": "Alanaan",
     "summonId": 9,
     "minStage": 0,
-    "maxStage": 4,
-    "startId": 5
+    "maxStage": 12,
+    "startId": 9
   },
   {
     "id": 10,
     "name": "Katzelia",
     "summonId": 10,
     "minStage": 0,
-    "maxStage": 4,
-    "startId": 4
+    "maxStage": 12,
+    "startId": 10
   }
 ]

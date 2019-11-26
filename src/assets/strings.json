@@ -1,0 +1,127 @@
+{
+  "stages": [
+    {
+      "en": "Nothing"
+    },
+    {
+      "en": "0* SR Summon"
+    },
+    {
+      "en": "1* SR Summon"
+    },
+    {
+      "en": "2* SR Summon"
+    },
+    {
+      "en": "3* SR Summon"
+    },
+    {
+      "en": "3* SSR Summon"
+    },
+    {
+      "en": "4* SSR Summon"
+    },
+    {
+      "en": "5* SSR Summon"
+    },
+    {
+      "en": "0* SSR Character"
+    },
+    {
+      "en": "1* SSR Character"
+    },
+    {
+      "en": "2* SSR Character"
+    },
+    {
+      "en": "3* SSR Character"
+    },
+    {
+      "en": "4* SSR Character"
+    },
+    {
+      "en": "5* SSR Character"
+    }
+  ],
+  "evoker_selector": {
+    "en": "Evoker:"
+  },
+  "stage_selector": {
+    "en": "Current Stage:"
+  },
+  "Maria Theresa": {
+    "en": "Maria Theresa"
+  },
+  "Caim": {
+    "en": "Caim"
+  },
+  "Nier": {
+    "en": "Nier"
+  },
+  "Estarriola": {
+    "en": "Estarriola"
+  },
+  "Fraux": {
+    "en": "Fraux"
+  },
+  "Lobelia": {
+    "en": "Lobelia"
+  },
+  "Geisenborger": {
+    "en": "Geisenborger"
+  },
+  "Haaselia": {
+    "en": "Haaselia"
+  },
+  "Alanaan": {
+    "en": "Alanaan"
+  },
+  "Katzelia": {
+    "en": "Katzelia"
+  },
+  "Justice": {
+    "en": "Justice"
+  },
+  "The Hanged Man": {
+    "en": "Hanged"
+  },
+  "Death": {
+    "en": "Death"
+  },
+  "Temperance": {
+    "en": "Temperance"
+  },
+  "The Devil": {
+    "en": "The Devil"
+  },
+  "The Tower": {
+    "en": "The Tower"
+  },
+  "The Star": {
+    "en": "The Star"
+  },
+  "The Moon": {
+    "en": "The Moon"
+  },
+  "The Sun": {
+    "en": "The Sun"
+  },
+  "Judgement": {
+    "en": "Judgement"
+  },
+  "table-label-name": {
+    "en": "Evoker Name"
+  },
+  "table-label-summonname": {
+    "en": "Summon Name"
+  },
+  "table-label-currentstage": {
+    "en": "Current Stage"
+  },
+  "table-label-details": {
+    "en": "Details"
+  },
+  "table-label-delete": {
+    "en": "Delete"
+  }
+}

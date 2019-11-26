@@ -8,7 +8,7 @@
       :items="tableItems"
       show-empty>
       <template v-slot:cell(currentStage)="data">
-        {{getStageName(data.item.currentStage)}}
+        {{getTranslation('stages', 'en', data.item.currentStage)}}
       </template>
 
       <template v-slot:cell(details)="row">
@@ -19,7 +19,8 @@
 
       <template v-slot:row-details="row">
         <SummaryTable
-          :currentStage="row.item.currentStage"/>
+          :currentStage="row.item.currentStage"
+          :char="chars.find((x) => (x.id === row.item.id))"/>
       </template>
 
       <template v-slot:cell(delete)="data">
@@ -35,6 +36,7 @@
 import SummaryTable from '../components/SummaryTable'
 import charData from '../assets/chars'
 import summonData from '../assets/summons'
+import getString from '../translate'
 
 export default {
   name: 'EvokerTable',
@@ -47,21 +49,23 @@ export default {
       fields: [
         {
           key: 'name',
-          label: 'Evoker Name'
+          label: this.getTranslation('table-label-name', 'en')
         },
         {
           key: 'summonName',
-          label: 'Summon Name'
+          label: this.getTranslation('table-label-summonname', 'en')
         },
         {
           key: 'currentStage',
-          label: 'Current Stage'
+          label: this.getTranslation('table-label-currentstage', 'en')
         },
         {
-          key: 'details'
+          key: 'details',
+          label: this.getTranslation('table-label-details', 'en')
         },
         {
-          key: 'delete'
+          key: 'delete',
+          label: this.getTranslation('table-label-delete', 'en')
         }
       ],
       chars: charData,
@@ -75,9 +79,9 @@ export default {
         let item = {}
         item.id = evoker.id
         let char = this.chars.filter((x) => (x.id === item.id))[0]
-        item.name = char.name
+        item.name = this.getTranslation(char.name, 'en')
         let summon = this.summons.filter((x) => (x.id === char.summonId))[0]
-        item.summonName = summon.name
+        item.summonName = this.getTranslation(summon.name, 'en')
         item.currentStage = evoker.currentStage
         items.push(item)
       }
@@ -85,21 +89,7 @@ export default {
     }
   },
   methods: {
-    getStageName: function (currentStage) {
-      let stageName
-      if (currentStage === 0) {
-        stageName = 'Nothing'
-      } else if (currentStage < 5) {
-        stageName = `${currentStage - 1}* SR Summon`
-      } else if (currentStage < 8) {
-        stageName = `${currentStage - 2}* SSR Summon`
-      } else if (currentStage < 14) {
-        stageName = `${currentStage - 8}* SSR Character`
-      } else {
-        stageName = 'Unknown'
-      }
-      return stageName
-    }
+    getTranslation: getString
   }
 }
 </script>
