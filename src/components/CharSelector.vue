@@ -1,6 +1,6 @@
 <template>
  <div>
-   <b-form @submit="onEvokerAdded">
+   <b-form>
      <div class="row">
        <b-form-group class="col-lg-6 col-sm-12" id="char-select-group" :label="getTranslation('evoker_selector', 'en')" label-for="select-evoker">
          <b-form-select v-model="selectedChar" id="select-evoker" :disabled="haveAll">
@@ -11,7 +11,7 @@
          <b-form-select v-model="selectedStage" id="select-stage" :options="stageOptions" :disabled="haveAll" />
        </b-form-group>
      </div>
-     <b-button block type="submit" variant="secondary" :disabled="haveAll">Add Evoker</b-button>
+     <b-button block type="submit" variant="secondary" :disabled="haveAll" @submit="onEvokerAdded">Add Evoker</b-button>
    </b-form>
  </div>
 </template>
