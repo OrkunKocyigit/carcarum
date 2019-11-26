@@ -1,7 +1,7 @@
 <template>
   <div class="ecalc">
     <CharSelector :addEvoker="onEvokerAdded" :filteredEvokers="filterEvokerList"/>
-    <EvokerTable :evokerList="evokers" :removeEvoker="onEvokerRemoved" class="mt-1"/>
+    <EvokerTable v-if="tableVisible" :evokerList="evokers" :removeEvoker="onEvokerRemoved" class="mt-1"/>
   </div>
 </template>
 
@@ -33,6 +33,9 @@ export default {
   computed: {
     filterEvokerList: function () {
       return this.evokers.map((x) => (x.id))
+    },
+    tableVisible: function () {
+      return this.evokers.length > 0
     }
   }
 }
