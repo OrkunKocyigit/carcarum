@@ -12,7 +12,7 @@
       </template>
 
       <template v-slot:cell(details)="row">
-        <b-button size="sm" class="mb-1" variant="primary" @click="row.toggleDetails">
+        <b-button :disabled="row.item.currentStage === chars.find((x) => (x.id === row.item.id)).maxStage" size="sm" class="mb-1" variant="primary" @click="row.toggleDetails">
           {{ row.detailsShowing ? 'Hide' : 'Show' }} Details
         </b-button>
       </template>

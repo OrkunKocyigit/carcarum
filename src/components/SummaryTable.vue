@@ -3,22 +3,20 @@
     <div>
       <b-form>
         <div class="row">
-          <b-form-group class="col-lg-4 col-sm-6" id="char-select-group" label="Current Stage:" label-for="select-current">
+          <b-form-group class="col-lg-5 col-sm-6" id="char-select-group" label="Current Stage:" label-for="select-current">
             <b-form-select v-model="currentStage" id="select-current" disabled>
               <option :value="currentStage">{{getTranslation('stages', 'en', currentStage)}}</option>
             </b-form-select>
           </b-form-group>
-          <b-form-group class="col-lg-4 col-sm-6" id="stage-select-group" label="Target Stage:" label-for="select-target">
+          <b-form-group class="col-lg-5 col-sm-6" id="stage-select-group" label="Target Stage:" label-for="select-target">
             <b-form-select v-model="targetStage" id="select-target" :options="upgradeOptions"/>
           </b-form-group>
-          <b-form-group class="mt-auto col-lg-2 col-sm-6" id="char-calc-group">
-            <b-button id="button-calc" block type="submit" variant="secondary">Calculate</b-button>
-          </b-form-group>
-          <b-form-group class="mt-auto col-lg-2 col-sm-6" id="char-upgrade-group">
-            <b-button id="button-submit" block type="submit" variant="primary">Upgrade</b-button>
+          <b-form-group class="mt-auto col-lg-2 col-sm-12" id="char-calc-group">
+            <b-button block id="button-calc" variant="secondary">Calculate</b-button>
           </b-form-group>
         </div>
       </b-form>
+      <MaterialsTable />
     </div>
   </b-card>
 </template>
@@ -26,12 +24,15 @@
 <script>
 import getString from '../translate'
 import stageNameGenerator from '../global'
+import MaterialsTable from './MaterialsTable'
 export default {
   name: 'SummaryTable',
+  components: { MaterialsTable },
   props: ['currentStage', 'char'],
   data: function () {
     return {
-      targetStage: Math.min(this.currentStage + 1, this.char.maxStage)
+      targetStage: Math.min(this.currentStage + 1, this.char.maxStage),
+      hasResult: false
     }
   },
   methods: {
