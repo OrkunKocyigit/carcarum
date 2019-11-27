@@ -2,7 +2,7 @@
   <div id="app" class="container">
     <div>
       <b-nav id="nav" tabs justified>
-        <b-nav-item to="/"><img src="./assets/icons/arcapoint.png"  alt=""/>Evoker Calculator</b-nav-item>
+        <b-nav-item to="/"><img src="../public/img/Arcapoint.png" alt=""/>Evoker Calculator</b-nav-item>
       </b-nav>
     </div>
     <router-view/>
@@ -25,5 +25,9 @@
   #nav a.router-link-exact-active{
     color: #68AB6A;
     font-weight: bold;
+  }
+
+  .table td {
+    vertical-align: middle !important;
   }
 </style>

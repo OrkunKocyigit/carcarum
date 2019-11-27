@@ -16,7 +16,7 @@
           </b-form-group>
         </div>
       </b-form>
-      <MaterialsTable v-if="hasResult"/>
+      <MaterialsTable v-if="hasResult" :mats="result"/>
     </div>
   </b-card>
 </template>
@@ -33,6 +33,7 @@ export default {
   data: function () {
     return {
       hasResult: false,
+      result: {},
       recipes: Recipes
     }
   },
@@ -68,7 +69,7 @@ export default {
         }
         this.hasResult = true
       }
-      return mats
+      this.result = mats
     }
   },
   computed: {

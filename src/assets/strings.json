@@ -129,5 +129,35 @@
   },
   "tip-astra": {
     "en": "Obtained from events, randomly on arcarum or from arcarum shop for 2000 points"
+  },
+  "table-label-icon": {
+    "en": "Icon"
+  },
+  "table-label-matname": {
+    "en": "Material Name"
+  },
+  "table-label-count": {
+    "en": "Count"
+  },
+  "table-label-own": {
+    "en": "Owned"
+  },
+  "table-label-progress": {
+    "en": "Progress"
+  },
+  "table-label-tip": {
+    "en": "How to Obtain"
+  },
+  "tip-idean": {
+    "en": "Obtained from killing respective boss in 9-3"
+  },
+  "tip-verum-proof": {
+    "en": "Obtained from Arcarum or from Arcarum shop for 150 points"
+  },
+  "tip-haze": {
+    "en": "Obtained from Arcarum or from Arcarum shop for 500 points"
+  },
+  "tip-prism": {
+    "en": "Obtained from combat, reducing SR summons or treasure trade"
   }
 }
