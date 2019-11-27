@@ -64,7 +64,6 @@ export default {
     getStageNames: stageNameGenerator,
     onTargetChanged: function (val) {
       this.triggerTargetChange(val)
-      this.calculateUpgrade()
     },
     calculateUpgrade: function () {
       let mats = {}
@@ -82,7 +81,7 @@ export default {
             break
           }
         }
-        recipes = recipes.slice(this.currentStage, recipes.length)
+        recipes = recipes.slice(this.currentStage, this.targetStage)
         let materialList = recipes.map((x) => (x.materials)).flat()
         for (let m of materialList) {
           if (mats.hasOwnProperty(m.id)) {
@@ -108,6 +107,11 @@ export default {
         result = generator.next()
       }
       return stages
+    }
+  },
+  watch: {
+    targetStage: function () {
+      this.calculateUpgrade()
     }
   }
 }

@@ -40,5 +40,35 @@
     "name": "Leviathan Omega Anima",
     "img": "img/Leviathan_Omega_Anima.jpg",
     "tip": "tip-omega-anima"
+  },
+  {
+    "id": 8,
+    "name": "Rainbow Prism",
+    "img": "img/Rainbow_Prism.jpg",
+    "tip": "tip-prism"
+  },
+  {
+    "id": 9,
+    "name": "Water Quartz",
+    "img": "img/Water_Quartz.jpg",
+    "tip": "tip-quartz"
+  },
+  {
+    "id": 10,
+    "name": "Macula Marius Anima",
+    "img": "img/Macula_Marius_Anima.jpg",
+    "tip": "tip-t1-anima"
+  },
+  {
+    "id": 11,
+    "name": "Grani Anima",
+    "img": "img/Grani_Anima.jpg",
+    "tip": "tip-t2-anima"
+  },
+  {
+    "id": 12,
+    "name": "Legendary Merit",
+    "img": "img/Legendary_Merit.jpg",
+    "tip": "tip-l-merit"
   }
 ]

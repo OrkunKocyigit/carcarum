@@ -162,5 +162,17 @@
   },
   "tip-omega-anima": {
     "en": "Obtained from omega bosses or treasure trade"
+  },
+  "tip-quartz": {
+    "en": "Obtained events, raids, guild war or reducing summons"
+  },
+  "tip-t1-anima": {
+    "en": "Obtained from T1 Summon Bosses or treasure trade"
+  },
+  "tip-t2-anima": {
+    "en": "Obtained from T2 Summon Bosses or treasure trade"
+  },
+  "tip-l-merit": {
+    "en": "Obtained from Akasha Raid or treasure trade"
   }
 }
