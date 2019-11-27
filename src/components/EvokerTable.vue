@@ -4,7 +4,8 @@
       :fields="fields"
       primary-key="id"
       striped
-      responsive="md"
+      :responsive="true"
+      stacked="md"
       :items="tableItems"
       show-empty>
       <template

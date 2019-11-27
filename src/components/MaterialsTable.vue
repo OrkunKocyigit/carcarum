@@ -3,7 +3,8 @@
     <b-table
       primary-key="id"
       striped
-      responsive="md"
+      :responsive="true"
+      stacked="md"
       :fields="fields"
       :items="matList"
       show-empty>
