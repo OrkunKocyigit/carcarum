@@ -1,7 +1,17 @@
 <template>
-  <div class="ecalc">
-    <CharSelector :addEvoker="onEvokerAdded" :filteredEvokers="filterEvokerList"/>
-    <EvokerTable v-if="tableVisible" :evokerList="evokers" :removeEvoker="onEvokerRemoved" :triggerTargetChange="onTargetChanged" class="mt-1"/>
+  <div
+    class="ecalc">
+    <CharSelector
+      :addEvoker="onEvokerAdded"
+      :filteredEvokers="filterEvokerList"/>
+    <EvokerTable
+      v-if="tableVisible"
+      :evokerList="evokers"
+      :removeEvoker="onEvokerRemoved"
+      :triggerTargetChange="onTargetChanged"
+      :inventory="inventory"
+      :triggerInventoryChange="onInventoryChanged"
+      class="mt-1"/>
   </div>
 </template>
 
@@ -15,7 +25,8 @@ export default {
   },
   data: function () {
     return {
-      evokers: []
+      evokers: [],
+      inventory: {}
     }
   },
   mounted () {
@@ -38,9 +49,17 @@ export default {
       this.evokers.find((x) => (x.id === evokerId)).targetStage = newTarget
       this.onSave()
     },
+    onInventoryChanged: function (matId, newItem) {
+      this.inventory[matId] = parseInt(newItem)
+      this.onSave()
+    },
+    onEvokerUpgraded: function (evokerId, newTarget) {
+
+    },
     onSave: function () {
       let save = {}
       save.evokers = this.evokers
+      save.inventory = this.inventory
       save = JSON.stringify(save)
       localStorage.setItem('save', save)
     },
@@ -48,7 +67,8 @@ export default {
       let save = localStorage.getItem('save')
       if (save) {
         save = JSON.parse(save)
-        this.evokers = save.evokers
+        this.evokers = save.evokers || []
+        this.inventory = save.inventory || {}
       }
     }
   },

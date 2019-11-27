@@ -7,26 +7,41 @@
       responsive="md"
       :items="tableItems"
       show-empty>
-      <template v-slot:cell(currentStage)="data">
+      <template
+        v-slot:cell(currentStage)="data">
         {{getTranslation('stages', 'en', data.item.currentStage)}}
       </template>
 
-      <template v-slot:cell(details)="row">
-        <b-button :disabled="row.item.currentStage === chars.find((x) => (x.id === row.item.id)).maxStage" size="sm" class="mb-1" variant="primary" @click="row.toggleDetails">
+      <template
+        v-slot:cell(details)="row">
+        <b-button
+          :disabled="row.item.currentStage === chars.find((x) => (x.id === row.item.id)).maxStage"
+          size="sm"
+          class="mb-1"
+          variant="primary"
+          @click="row.toggleDetails">
           {{ row.detailsShowing ? 'Hide' : 'Show' }} Details
         </b-button>
       </template>
 
-      <template v-slot:row-details="row">
+      <template
+        v-slot:row-details="row">
         <SummaryTable
           :currentStage="row.item.currentStage"
           :targetStage="evokerList.find((x) => (x.id === row.item.id)).targetStage"
           :triggerTargetChange="triggerTargetChange.bind(this, row.item.id)"
-          :char="chars.find((x) => (x.id === row.item.id))"/>
+          :char="chars.find((x) => (x.id === row.item.id))"
+          :triggerInventoryChange="triggerInventoryChange"
+          :inventory="inventory" />
       </template>
 
-      <template v-slot:cell(delete)="data">
-        <b-button size="sm" class="mb-1" variant="danger" @click="removeEvoker(data.item.id)">
+      <template
+        v-slot:cell(delete)="data">
+        <b-button
+          size="sm"
+          class="mb-1"
+          variant="danger"
+          @click="removeEvoker(data.item.id)">
           Delete
         </b-button>
       </template>
@@ -42,7 +57,7 @@ import getString from '../translate'
 
 export default {
   name: 'EvokerTable',
-  props: ['evokerList', 'removeEvoker', 'triggerTargetChange'],
+  props: ['evokerList', 'removeEvoker', 'triggerTargetChange', 'inventory', 'triggerInventoryChange'],
   components: {
     'SummaryTable': SummaryTable
   },

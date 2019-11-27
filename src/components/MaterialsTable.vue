@@ -7,26 +7,46 @@
       :fields="fields"
       :items="matList"
       show-empty>
-
-      <template v-slot:cell(pic)="data">
-        <b-img thumbnail left :src="data.item.pic" fluid width="64" height="64"  alt=""/>
+      <template
+        v-slot:cell(pic)="data">
+        <b-img
+          thumbnail
+          left
+          :src="data.item.pic"
+          fluid
+          width="64"
+          height="64"
+          alt=""/>
       </template>
-      <template v-slot:cell(name)="data">
-        {{data.item.name}}
-      </template>
-      <template v-slot:cell(count)="data">
+      <template
+        v-slot:cell(count)="data">
         {{data.item.count}}
       </template>
-      <template v-slot:cell(own)="data">
-        {{data.item.own}}
+      <template
+        v-slot:cell(own)="data">
+        <b-form-input
+          v-model="data.item.own"
+          @change="triggerInventoryChange(data.item.id, data.value)"
+          size="sm"
+          type="number"/>
       </template>
-      <template v-slot:cell(progress)="data">
-        {{data.item.progress}}
+      <template
+        v-slot:cell(progress)="data">
+        <b-progress class="mt-2" :max="100" show-value>
+          <b-progress-bar :value="data.item.progress" variant="success" />
+        </b-progress>
       </template>
-      <template v-slot:cell(tip)="data">
+      <template
+        v-slot:cell(tip)="data">
         {{data.item.tip}}
       </template>
     </b-table>
+    <b-button
+      variant="primary"
+      block
+      :disabled="!hasAllMats">
+      Upgrade
+    </b-button>
   </div>
 </template>
 
@@ -35,7 +55,7 @@ import getString from '../translate'
 import Materials from '../assets/materials'
 export default {
   name: 'MaterialsTable',
-  props: ['mats'],
+  props: ['mats', 'inventory', 'triggerInventoryChange'],
   data: function () {
     return {
       fields: [
@@ -71,21 +91,38 @@ export default {
     matList: function () {
       let totalCost = []
       let ids = Object.keys(this.mats).map(x => parseInt(x, 10))
+      let inv = this.inventory
       let matList = this.materialsList
       for (let i = 0; i < ids.length; i++) {
         let matObj = matList.find((x) => (x.id === ids[i]))
         if (matObj) {
           let mat = {}
+          mat.id = ids[i]
           mat.pic = matObj.img
           mat.name = matObj.name
           mat.count = this.mats[ids[i]]
-          mat.own = 0
-          mat.progress = mat.own / mat.count * 100
+          if (!inv || !inv.hasOwnProperty(mat.id)) {
+            this.triggerInventoryChange(mat.id, 0)
+            mat.own = 0
+          } else {
+            mat.own = inv[mat.id]
+          }
+          mat.progress = Math.min(mat.own / mat.count * 100, 100)
           mat.tip = this.getTranslation(matObj.tip, 'en')
           totalCost.push(mat)
         }
       }
       return totalCost
+    },
+    hasAllMats: function () {
+      let result = true
+      for (let mat of this.matList) {
+        if (mat.progress < 100) {
+          result = false
+          break
+        }
+      }
+      return result
     }
   },
   methods: {
@@ -95,5 +132,7 @@ export default {
 </script>
 
 <style scoped>
-
+.progress {
+  margin-top: 0 !important;
+}
 </style>

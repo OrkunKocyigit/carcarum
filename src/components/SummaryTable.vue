@@ -2,21 +2,52 @@
   <b-card>
     <div>
       <b-form>
-        <div class="row">
-          <b-form-group class="col-lg-5 col-sm-6" id="char-select-group" label="Current Stage:" label-for="select-current">
-            <b-form-select v-model="currentStage" id="select-current" disabled>
-              <option :value="currentStage">{{getTranslation('stages', 'en', currentStage)}}</option>
+        <div
+          class="row">
+          <b-form-group
+            class="col-lg-5 col-sm-6"
+            id="char-select-group"
+            label="Current Stage:"
+            label-for="select-current">
+            <b-form-select
+              v-model="currentStage"
+              id="select-current"
+              disabled>
+              <option
+                :value="currentStage">
+                {{getTranslation('stages', 'en', currentStage)}}
+              </option>
             </b-form-select>
           </b-form-group>
-          <b-form-group class="col-lg-5 col-sm-6" id="stage-select-group" label="Target Stage:" label-for="select-target">
-            <b-form-select :value="targetStage" id="select-target" :options="upgradeOptions" @change="onTargetChanged"/>
+          <b-form-group
+            class="col-lg-5 col-sm-6"
+            id="stage-select-group"
+            label="Target Stage:"
+            label-for="select-target">
+            <b-form-select
+              :value="targetStage"
+              id="select-target"
+              :options="upgradeOptions"
+              @change="onTargetChanged"/>
           </b-form-group>
-          <b-form-group class="mt-auto col-lg-2 col-sm-12" id="char-calc-group">
-            <b-button block id="button-calc" variant="secondary" @click="calculateUpgrade">Calculate</b-button>
+          <b-form-group
+            class="mt-auto col-lg-2 col-sm-12"
+            id="char-calc-group">
+            <b-button
+              block
+              id="button-calc"
+              variant="secondary"
+              @click="calculateUpgrade">
+              Calculate
+            </b-button>
           </b-form-group>
         </div>
       </b-form>
-      <MaterialsTable v-if="hasResult" :mats="result"/>
+      <MaterialsTable
+        v-if="hasResult"
+        :mats="result"
+        :inventory="inventory"
+        :triggerInventoryChange="triggerInventoryChange"/>
     </div>
   </b-card>
 </template>
@@ -29,7 +60,7 @@ import Recipes from '../assets/recipes'
 export default {
   name: 'SummaryTable',
   components: { MaterialsTable },
-  props: ['currentStage', 'targetStage', 'char', 'triggerTargetChange'],
+  props: ['currentStage', 'targetStage', 'char', 'triggerTargetChange', 'inventory', 'triggerInventoryChange'],
   data: function () {
     return {
       hasResult: false,
