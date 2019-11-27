@@ -5,7 +5,7 @@
         <div
           class="row">
           <b-form-group
-            class="col-lg-5 col-sm-6"
+            class="col-lg-6 col-sm-12"
             id="char-select-group"
             label="Current Stage:"
             label-for="select-current">
@@ -20,7 +20,7 @@
             </b-form-select>
           </b-form-group>
           <b-form-group
-            class="col-lg-5 col-sm-6"
+            class="col-lg-6 col-sm-12"
             id="stage-select-group"
             label="Target Stage:"
             label-for="select-target">
@@ -30,24 +30,13 @@
               :options="upgradeOptions"
               @change="onTargetChanged"/>
           </b-form-group>
-          <b-form-group
-            class="mt-auto col-lg-2 col-sm-12"
-            id="char-calc-group">
-            <b-button
-              block
-              id="button-calc"
-              variant="secondary"
-              @click="calculateUpgrade">
-              Calculate
-            </b-button>
-          </b-form-group>
         </div>
       </b-form>
       <MaterialsTable
-        v-if="hasResult"
         :mats="result"
         :inventory="inventory"
-        :triggerInventoryChange="triggerInventoryChange"/>
+        :triggerInventoryChange="triggerInventoryChange"
+        :triggerEvokerUpgrade="onEvokerUpgrade"/>
     </div>
   </b-card>
 </template>
@@ -60,19 +49,22 @@ import Recipes from '../assets/recipes'
 export default {
   name: 'SummaryTable',
   components: { MaterialsTable },
-  props: ['currentStage', 'targetStage', 'char', 'triggerTargetChange', 'inventory', 'triggerInventoryChange'],
+  props: ['currentStage', 'targetStage', 'char', 'triggerTargetChange', 'inventory', 'triggerInventoryChange', 'triggerEvokerUpgrade'],
   data: function () {
     return {
-      hasResult: false,
       result: {},
       recipes: Recipes
     }
+  },
+  mounted () {
+    this.calculateUpgrade()
   },
   methods: {
     getTranslation: getString,
     getStageNames: stageNameGenerator,
     onTargetChanged: function (val) {
       this.triggerTargetChange(val)
+      this.calculateUpgrade()
     },
     calculateUpgrade: function () {
       let mats = {}
@@ -90,6 +82,7 @@ export default {
             break
           }
         }
+        recipes = recipes.slice(this.currentStage, recipes.length)
         let materialList = recipes.map((x) => (x.materials)).flat()
         for (let m of materialList) {
           if (mats.hasOwnProperty(m.id)) {
@@ -98,9 +91,11 @@ export default {
             mats[m.id] = m.count
           }
         }
-        this.hasResult = true
       }
       this.result = mats
+    },
+    onEvokerUpgrade: function (cost) {
+      this.triggerEvokerUpgrade(this.char.id, this.targetStage, cost)
     }
   },
   computed: {

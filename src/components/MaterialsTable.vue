@@ -44,7 +44,8 @@
     <b-button
       variant="primary"
       block
-      :disabled="!hasAllMats">
+      :disabled="!hasAllMats"
+      @click="triggerEvokerUpgrade(mats)">
       Upgrade
     </b-button>
   </div>
@@ -55,7 +56,7 @@ import getString from '../translate'
 import Materials from '../assets/materials'
 export default {
   name: 'MaterialsTable',
-  props: ['mats', 'inventory', 'triggerInventoryChange'],
+  props: ['mats', 'inventory', 'triggerInventoryChange', 'triggerEvokerUpgrade'],
   data: function () {
     return {
       fields: [

@@ -11,6 +11,7 @@
       :triggerTargetChange="onTargetChanged"
       :inventory="inventory"
       :triggerInventoryChange="onInventoryChanged"
+      :triggerEvokerUpgrade="onEvokerUpgraded"
       class="mt-1"/>
   </div>
 </template>
@@ -18,6 +19,7 @@
 <script>
 import CharSelector from '../components/CharSelector'
 import EvokerTable from '../components/EvokerTable'
+import Chars from '../assets/chars'
 export default {
   components: {
     CharSelector: CharSelector,
@@ -26,7 +28,8 @@ export default {
   data: function () {
     return {
       evokers: [],
-      inventory: {}
+      inventory: {},
+      charData: Chars
     }
   },
   mounted () {
@@ -53,8 +56,16 @@ export default {
       this.inventory[matId] = parseInt(newItem)
       this.onSave()
     },
-    onEvokerUpgraded: function (evokerId, newTarget) {
-
+    onEvokerUpgraded: function (evokerId, newTarget, cost) {
+      this.evokers.find((x) => (x.id === evokerId)).currentStage = newTarget
+      this.evokers.find((x) => (x.id === evokerId)).targetStage = Math.min(this.charData.find((x) => (x.id === evokerId)).maxStage, newTarget + 1)
+      let newInventory = this.inventory
+      let matIds = Object.keys(cost).map((x) => (parseInt(x, 10)))
+      for (let matId of matIds) {
+        newInventory[matId] -= cost[matId]
+      }
+      this.inventory = newInventory
+      this.onSave()
     },
     onSave: function () {
       let save = {}

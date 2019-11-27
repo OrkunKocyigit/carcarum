@@ -159,5 +159,8 @@
   },
   "tip-prism": {
     "en": "Obtained from combat, reducing SR summons or treasure trade"
+  },
+  "tip-omega-anima": {
+    "en": "Obtained from omega bosses or treasure trade"
   }
 }

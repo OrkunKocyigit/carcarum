@@ -32,6 +32,7 @@
           :triggerTargetChange="triggerTargetChange.bind(this, row.item.id)"
           :char="chars.find((x) => (x.id === row.item.id))"
           :triggerInventoryChange="triggerInventoryChange"
+          :triggerEvokerUpgrade="triggerEvokerUpgrade"
           :inventory="inventory" />
       </template>
 
@@ -57,7 +58,7 @@ import getString from '../translate'
 
 export default {
   name: 'EvokerTable',
-  props: ['evokerList', 'removeEvoker', 'triggerTargetChange', 'inventory', 'triggerInventoryChange'],
+  props: ['evokerList', 'removeEvoker', 'triggerTargetChange', 'inventory', 'triggerInventoryChange', 'triggerEvokerUpgrade'],
   components: {
     'SummaryTable': SummaryTable
   },
