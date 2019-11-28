@@ -174,5 +174,50 @@
   },
   "tip-l-merit": {
     "en": "Obtained from Akasha Raid or treasure trade"
+  },
+  "tip-silver-centrum": {
+    "en": "Obtained from Grand Order raid or treasure trade"
+  },
+  "tip-primarch-anima": {
+    "en": "Obtained from Primarch raids"
+  },
+  "tip-l-sunlight": {
+    "en": "Obtained from valor shop for 275 tokens or Arcarum shop for 30000 points"
+  },
+  "tip-m2-anima": {
+    "en": "Obtained from M2 Summon Bosses or treasure trade"
+  },
+  "tip-arcarum-fragment": {
+    "en": "Obtained from secret Arcarum bosses or Arcarum shop for 5000 points"
+  },
+  "tip-coop-mat": {
+    "en": "Obtained from showdowns"
+  },
+  "tip-elemental-fragment": {
+    "en": "Obtained from elemental dungeons"
+  },
+  "tip-genesis-fragment" : {
+    "en": "Obtained from M2 raids or Faasan"
+  },
+  "tip-primeval-Horn": {
+    "en": "Obtained from Proto Bahamuth HL"
+  },
+  "tip-toxic-tulip": {
+    "en": "Obtained rarely from chapter 93 episode 4 main quest or cerulean stone shop for 5 stones"
+  },
+  "tip-evolite": {
+    "en": "Obtained from Arcarum shop for 40000 points or Valor shop for 500 valors."
+  },
+  "tip-supreme-merit": {
+    "en": "Obtained from events and raids"
+  },
+  "tip-dragon-scale": {
+    "en": "Obtained from elemental dungeons."
+  },
+  "tip-bestia-fruit": {
+    "en": "Obtained rarely from chapter 90-93 main quest or cerulean stone shop for 5 stones"
+  },
+  "tip-broken-teacup": {
+    "en": "Obtained rarely from chapter 108-110 main quest or cerulean stone shop for 5 stones"
   }
 }

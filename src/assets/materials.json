@@ -70,5 +70,197 @@
     "name": "Legendary Merit",
     "img": "img/Legendary_Merit.jpg",
     "tip": "tip-l-merit"
+  },
+  {
+    "id": 13,
+    "name": "Silver Centrum",
+    "img": "img/Silver_Centrum.jpg",
+    "tip": "tip-silver-centrum"
+  },
+  {
+    "id": 14,
+    "name": "Gabriel Anima",
+    "img": "img/Gabriel_Anima.jpg",
+    "tip": "tip-primarch-anima"
+  },
+  {
+    "id": 15,
+    "name": "Sunlight Stone",
+    "img": "img/Sunlight_Stone.jpg",
+    "tip": "tip-sunlight"
+  },
+  {
+    "id": 16,
+    "name": "Europa Omega Anima",
+    "img": "img/Europa_Omega_Anima.jpg",
+    "tip": "tip-m2-anima"
+  },
+  {
+    "id": 17,
+    "name": "Bellator Fragment",
+    "img": "img/Bellator_Fragment.jpg",
+    "tip": "tip-arcarum-fragment"
+  },
+  {
+    "id": 18,
+    "name": "Frozen Hell Prism",
+    "img": "img/Frozen_Hell_Prism.jpg",
+    "tip": "tip-coop-mat"
+  },
+  {
+    "id": 19,
+    "name": "Deluge Fragment",
+    "img": "img/Deluge_Fragment.jpg",
+    "tip": "tip-elemental-fragment"
+  },
+  {
+    "id": 20,
+    "name": "Genesis Fragment",
+    "img": "img/Genesis_Fragment.jpg",
+    "tip": "tip-genesis-fragment"
+  },
+  {
+    "id": 21,
+    "name": "Primeval Horn",
+    "img": "img/Primeval_Horn.jpg",
+    "tip": "tip-primeval-Horn"
+  },
+  {
+    "id": 22,
+    "name": "Toxic Tulip",
+    "img": "img/Toxic_Tulip.jpg",
+    "tip": "tip-toxic-tulip"
+  },
+  {
+    "id": 23,
+    "name": "Sephira Evolite",
+    "img": "img/Sephira_Evolite.jpg",
+    "tip": "tip-evolite"
+  },
+  {
+    "id": 24,
+    "name": "Supreme Merit",
+    "img": "img/Supreme_Merit.jpg",
+    "tip": "tip-supreme-merit"
+  },
+  {
+    "id": 25,
+    "name": "Blue Dragon Scale",
+    "img": "img/Blue_Dragon_Scale.jpg",
+    "tip": "tip-dragon-scale"
+  },
+  {
+    "id": 26,
+    "name": "Earthborne Astra",
+    "img": "img/Earthborne_Astra.jpg",
+    "tip": "tip-astra"
+  },
+  {
+    "id": 27,
+    "name": "Hanged Man Idean",
+    "img": "img/Hanged_Man_Idean.jpg",
+    "tip": "tip-idian"
+  },
+  {
+    "id": 28,
+    "name": "Earth Verum Proof",
+    "img": "img/Earth_Verum_Proof.jpg",
+    "tip": "tip-verum-proof"
+  },
+  {
+    "id": 29,
+    "name": "Yggdrasil Omega Anima",
+    "img": "img/Yggdrasil_Omega_Anima.jpg",
+    "tip": "tip-omega-anima"
+  },
+  {
+    "id": 30,
+    "name": "Earth Quartz",
+    "img": "img/Earth_Quartz.jpg",
+    "tip": "tip-quartz"
+  },
+  {
+    "id": 31,
+    "name": "Medusa Anima",
+    "img": "img/Medusa_Anima.jpg",
+    "tip": "tip-t1-anima"
+  },
+  {
+    "id": 32,
+    "name": "Baal Anima",
+    "img": "img/Baal_Anima.jpg",
+    "tip": "tip-t2-anima"
+  },
+  {
+    "id": 33,
+    "name": "Uriel Anima",
+    "img": "img/Uriel_Anima.jpg",
+    "tip": "tip-primarch-anima"
+  },
+  {
+    "id": 34,
+    "name": "Aquila Fragment",
+    "img": "img/Aquila_Fragment.jpg",
+    "tip": "tip-arcarum-fragment"
+  },
+  {
+    "id": 35,
+    "name": "Alexiel Omega Anima",
+    "img": "img/Alexiel_Omega_Anima.jpg",
+    "tip": "tip-m2-anima"
+  },
+  {
+    "id": 36,
+    "name": "Wasteland Fragment",
+    "img": "img/Wasteland_Fragment.jpg",
+    "tip": "tip-elemental-fragment"
+  },
+  {
+    "id": 37,
+    "name": "Evil Judge Crystal",
+    "img": "img/Evil_Judge_Crystal.jpg",
+    "tip": "tip-coop-mat"
+  },
+  {
+    "id": 38,
+    "name": "Bestia Fruit",
+    "img": "img/Bestia_Fruit.jpg",
+    "tip": "tip-bestia-fruit"
+  },
+  {
+    "id": 39,
+    "name": "Brown Dragon Scale",
+    "img": "img/Brown_Dragon_Scale.jpg",
+    "tip": "tip-dragon-scale"
+  },
+  {
+    "id": 40,
+    "name": "Tower Idean",
+    "img": "img/Tower_Idean.jpg",
+    "tip": "tip-idian"
+  },
+  {
+    "id": 41,
+    "name": "Celsus Fragment",
+    "img": "img/Celsus_Fragment.jpg",
+    "tip": "tip-arcarum-fragment"
+  },
+  {
+    "id": 42,
+    "name": "Broken Teacup",
+    "img": "img/Broken_Teacup.jpg",
+    "tip": "tip-broken-teacup"
+  },
+  {
+    "id": 43,
+    "name": "Moon Idean",
+    "img": "img/Moon_Idean.jpg",
+    "tip": "tip-idian"
+  },
+  {
+    "id": 44,
+    "name": "Translucent Silk",
+    "img": "img/Translucent_Silk.jpg",
+    "tip": "tip-translucent-silk"
   }
 ]

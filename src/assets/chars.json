@@ -13,7 +13,7 @@
     "summonId": 2,
     "minStage": 0,
     "maxStage": 12,
-    "startId": 2
+    "startId": 13
   },
   {
     "id": 3,
@@ -45,7 +45,7 @@
     "summonId": 6,
     "minStage": 0,
     "maxStage": 12,
-    "startId": 6
+    "startId": 25
   },
   {
     "id": 7,
@@ -61,7 +61,7 @@
     "summonId": 8,
     "minStage": 0,
     "maxStage": 12,
-    "startId": 8
+    "startId": 37
   },
   {
     "id": 9,

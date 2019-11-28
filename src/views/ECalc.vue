@@ -53,7 +53,7 @@ export default {
       this.onSave()
     },
     onInventoryChanged: function (matId, newItem) {
-      this.inventory[matId] = parseInt(newItem)
+      this.$set(this.inventory, matId, parseInt(newItem))
       this.onSave()
     },
     onEvokerUpgraded: function (evokerId, newTarget, cost) {
