@@ -262,5 +262,191 @@
     "name": "Translucent Silk",
     "img": "img/Translucent_Silk.jpg",
     "tip": "tip-translucent-silk"
+  },
+  {
+    "id": 45,
+    "name": "Flameborne Astra",
+    "img": "img/Flameborne_Astra.jpg",
+    "tip": "tip-astra"
+  },
+  {
+    "id": 46,
+    "name": "Sun Idean",
+    "img": "img/Sun_Idean.jpg",
+    "tip": "tip-idian"
+  },
+  {
+    "id": 47,
+    "name": "Fire Verum Proof",
+    "img": "img/Fire_Verum_Proof.jpg",
+    "tip": "tip-verum-proof"
+  },
+  {
+    "id": 48,
+    "name": "Colossus Omega Anima",
+    "img": "img/Colossus_Omega_Anima.jpg",
+    "tip": "tip-omega-anima"
+  },
+  {
+    "id": 49,
+    "name": "Fire Quartz",
+    "img": "img/Fire_Quartz.jpg",
+    "tip": "tip-quartz"
+  },
+  {
+    "id": 50,
+    "name": "Twin Elements Anima",
+    "img": "img/Twin_Elements_Anima.jpg",
+    "tip": "tip-t1-anima"
+  },
+  {
+    "id": 51,
+    "name": "Athena Anima",
+    "img": "img/Athena_Anima.jpg",
+    "tip": "tip-t2-anima"
+  },
+  {
+    "id": 52,
+    "name": "Michael Anima",
+    "img": "img/Michael_Anima.jpg",
+    "tip": "tip-primarch-anima"
+  },
+  {
+    "id": 53,
+    "name": "Shiva Omega Anima",
+    "img": "img/Shiva_Omega_Anima.jpg",
+    "tip": "tip-m2-anima"
+  },
+  {
+    "id": 54,
+    "name": "Infernal Garnet",
+    "img": "img/Infernal_Garnet.jpg",
+    "tip": "tip-coop-mat"
+  },
+  {
+    "id": 55,
+    "name": "Hellfire Fragment",
+    "img": "img/Hellfire_Fragment.jpg",
+    "tip": "tip-elemental-fragment"
+  },
+  {
+    "id": 56,
+    "name": "Meditative Sutra",
+    "img": "img/Meditative_Sutra.jpg",
+    "tip": "tip-meditative-sutra"
+  },
+  {
+    "id": 57,
+    "name": "Aurora Haze",
+    "img": "img/Aurora_Haze.jpg",
+    "tip": "tip-haze"
+  },
+  {
+    "id": 58,
+    "name": "Red Dragon Scale",
+    "img": "img/Red_Dragon_Scale.jpg",
+    "tip": "tip-dragon-scale"
+  },
+  {
+    "id": 59,
+    "name": "Devil Idean",
+    "img": "img/Devil_Idean.jpg",
+    "tip": "tip-idean"
+  },
+  {
+    "id": 60,
+    "name": "Rhem Pepper",
+    "img": "img/Rhem_Pepper.jpg",
+    "tip": "tip-rhem-pepper"
+  },
+  {
+    "id": 61,
+    "name": "Windborne Astra",
+    "img": "img/Windborne_Astra.jpg",
+    "tip": "tip-astra"
+  },
+  {
+    "id": 62,
+    "name": "Temperance Idean",
+    "img": "img/Temperance_Idean.jpg",
+    "tip": "tip-idean"
+  },
+  {
+    "id": 63,
+    "name": "Wind Verum Proof",
+    "img": "img/Wind_Verum_Proof.jpg",
+    "tip": "tip-verum-proof"
+  },
+  {
+    "id": 64,
+    "name": "Tiamat Omega Anima",
+    "img": "img/Tiamat_Omega_Anima.jpg",
+    "tip": "tip-omega-anima"
+  },
+  {
+    "id": 65,
+    "name": "Wind Quartz",
+    "img": "img/Wind_Quartz.jpg",
+    "tip": "tip-quartz"
+  },
+  {
+    "id": 66,
+    "name": "Nezha Anima",
+    "img": "img/Nezha_Anima.jpg",
+    "tip": "tip-t1-anima"
+  },
+  {
+    "id": 67,
+    "name": "Athena Anima",
+    "img": "img/Garuda_Anima.jpg",
+    "tip": "tip-t2-anima"
+  },
+  {
+    "id": 68,
+    "name": "Raphael Anima",
+    "img": "img/Raphael_Anima.jpg",
+    "tip": "tip-primarch-anima"
+  },
+  {
+    "id": 69,
+    "name": "Grimnir Omega Anima",
+    "img": "img/Grimnir_Omega_Anima.jpg",
+    "tip": "tip-m2-anima"
+  },
+  {
+    "id": 70,
+    "name": "Horseman's Plate",
+    "img": "img/Horseman's_Plate.jpg",
+    "tip": "tip-coop-mat"
+  },
+  {
+    "id": 71,
+    "name": "Typhoon Fragment",
+    "img": "img/Typhoon_Fragment.jpg",
+    "tip": "tip-elemental-fragment"
+  },
+  {
+    "id": 72,
+    "name": "Kluger Herb",
+    "img": "img/Kluger_Herb.jpg",
+    "tip": "tip-kluger-herb"
+  },
+  {
+    "id": 73,
+    "name": "Green Dragon Scale",
+    "img": "img/Green_Dragon_Scale.jpg",
+    "tip": "tip-dragon-scale"
+  },
+  {
+    "id": 74,
+    "name": "Judgement Idean",
+    "img": "img/Judgement_Idean.jpg",
+    "tip": "tip-idean"
+  },
+  {
+    "id": 75,
+    "name": "Dusty Book",
+    "img": "img/Dusty_Book.jpg",
+    "tip": "tip-dusty-book"
   }
 ]
