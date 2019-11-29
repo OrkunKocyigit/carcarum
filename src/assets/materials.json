@@ -398,7 +398,7 @@
   {
     "id": 67,
     "name": "Athena Anima",
-    "img": "img/Garuda_Anima.jpg",
+    "img": "img/Athena_Anima.jpg",
     "tip": "tip-t2-anima"
   },
   {
@@ -448,5 +448,131 @@
     "name": "Dusty Book",
     "img": "img/Dusty_Book.jpg",
     "tip": "tip-dusty-book"
+  },
+  {
+    "id": 76,
+    "name": "Darkborne Astra",
+    "img": "img/Darkborne_Astra.jpg",
+    "tip": "tip-astra"
+  },
+  {
+    "id": 77,
+    "name": "Death Idean",
+    "img": "img/Death_Idean.jpg",
+    "tip": "tip-idean"
+  },
+  {
+    "id": 78,
+    "name": "Celeste Omega Anima",
+    "img": "img/Celeste_Omega_Anima.jpg",
+    "tip": "tip-omega-anima"
+  },
+  {
+    "id": 79,
+    "name": "Dark Angel Olivia Anima",
+    "img": "img/Dark_Angel_Olivia_Anima.jpg",
+    "tip": "tip-t1-anima"
+  },
+  {
+    "id": 80,
+    "name": "Lich Anima",
+    "img": "img/Lich_Anima.jpg",
+    "tip": "tip-t2-anima"
+  },
+  {
+    "id": 81,
+    "name": "Avatar Omega Anima",
+    "img": "img/Avatar_Omega_Anima.jpg",
+    "tip": "tip-m2-anima"
+  },
+  {
+    "id": 82,
+    "name": "Phantom Demon Jewel",
+    "img": "img/Phantom_Demon_Jewel.jpg",
+    "tip": "tip-coop-mat"
+  },
+  {
+    "id": 83,
+    "name": "Jumbo Beast Bone",
+    "img": "img/Jumbo_Beast_Bone.jpg",
+    "tip": "tip-beast-bone"
+  },
+  {
+    "id": 84,
+    "name": "Black Dragon Scale",
+    "img": "img/Black_Dragon_Scale.jpg",
+    "tip": "tip-dragon-scale"
+  },
+  {
+    "id": 85,
+    "name": "Dark Quartz",
+    "img": "img/Dark_Quartz.jpg",
+    "tip": "tip-quartz"
+  },
+  {
+    "id": 86,
+    "name": "Lightborne Astra",
+    "img": "img/Lightborne_Astra.jpg",
+    "tip": "tip-astra"
+  },
+  {
+    "id": 87,
+    "name": "Star Idean",
+    "img": "img/Star_Idean.jpg",
+    "tip": "tip-idean"
+  },
+  {
+    "id": 88,
+    "name": "Luminiera Omega Anima",
+    "img": "img/Luminiera_Omega_Anima.jpg",
+    "tip": "tip-omega-anima"
+  },
+  {
+    "id": 89,
+    "name": "Light Quartz",
+    "img": "img/Light_Quartz.jpg",
+    "tip": "tip-quartz"
+  },
+  {
+    "id": 90,
+    "name": "Apollo Anima",
+    "img": "img/Apollo_Anima.jpg",
+    "tip": "tip-t1-anima"
+  },
+  {
+    "id": 90,
+    "name": "Apollo Anima",
+    "img": "img/Apollo_Anima.jpg",
+    "tip": "tip-t1-anima"
+  },
+  {
+    "id": 91,
+    "name": "Odin Anima",
+    "img": "img/Odin_Anima.jpg",
+    "tip": "tip-t2-anima"
+  },
+  {
+    "id": 92,
+    "name": "Metatron Omega Anima",
+    "img": "img/Metatron_Omega_Anima.jpg",
+    "tip": "tip-m2-anima"
+  },
+  {
+    "id": 93,
+    "name": "Halo Light Quartz",
+    "img": "img/Halo_Light_Quartz.jpg",
+    "tip": "tip-coop-mat"
+  },
+  {
+    "id": 94,
+    "name": "Rusty Eave",
+    "img": "img/Rusty_Eave.jpg",
+    "tip": "tip-rusty-eave"
+  },
+  {
+    "id": 95,
+    "name": "White Dragon Scale",
+    "img": "img/White_Dragon_Scale.jpg",
+    "tip": "tip-dragon-scale"
   }
 ]
