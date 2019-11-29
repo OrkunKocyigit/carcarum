@@ -10,7 +10,7 @@
       :removeEvoker="onEvokerRemoved"
       :triggerTargetChange="onTargetChanged"
       :inventory="inventory"
-      :triggerInventoryChange="onInventoryChanged"
+      :triggerInventoryChange="props.triggerInventoryChange"
       :triggerEvokerUpgrade="onEvokerUpgraded"
       class="mt-1"/>
   </div>
@@ -25,67 +25,46 @@ export default {
     CharSelector: CharSelector,
     EvokerTable: EvokerTable
   },
+  props: ['props'],
   data: function () {
     return {
-      evokers: [],
-      inventory: {},
+      evokers: this.props.evokers,
+      inventory: this.props.inventory,
       charData: Chars
     }
   },
-  mounted () {
-    this.onLoad()
-  },
   methods: {
-    onEvokerAdded: function (evokerId, currentStage, targetStage) {
-      this.evokers.push({ id: evokerId, currentStage: currentStage, targetStage: targetStage })
-      this.onSave()
+    onEvokerAdded: function (evokerId, currentStage) {
+      let newEvokerList = this.evokers
+      let nextTarget = Math.min(this.charData.find(x => x.id === evokerId).maxStage, currentStage + 1)
+      newEvokerList.push({ id: evokerId, currentStage: currentStage, targetStage: nextTarget })
+      this.props.triggerEvokerChange(newEvokerList)
     },
     onEvokerRemoved: function (evokerId) {
-      for (let i = 0; i < this.evokers.length; i++) {
-        if (this.evokers[i].id === evokerId) {
-          this.evokers.splice(i, 1)
-        }
-      }
-      this.onSave()
+      let newEvokerList = this.evokers
+      newEvokerList.splice(newEvokerList.indexOf(newEvokerList.find(x => x.id === evokerId)), 1)
+      this.props.triggerEvokerChange(newEvokerList)
     },
     onTargetChanged: function (evokerId, newTarget) {
-      this.evokers.find((x) => (x.id === evokerId)).targetStage = newTarget
-      this.onSave()
-    },
-    onInventoryChanged: function (matId, newItem) {
-      this.$set(this.inventory, matId, parseInt(newItem))
-      this.onSave()
+      let newEvokerList = this.evokers
+      newEvokerList.find(x => x.id === evokerId).targetStage = newTarget
+      this.props.triggerEvokerChange(newEvokerList)
     },
     onEvokerUpgraded: function (evokerId, newTarget, cost) {
-      this.evokers.find((x) => (x.id === evokerId)).currentStage = newTarget
-      this.evokers.find((x) => (x.id === evokerId)).targetStage = Math.min(this.charData.find((x) => (x.id === evokerId)).maxStage, newTarget + 1)
-      let newInventory = this.inventory
-      let matIds = Object.keys(cost).map((x) => (parseInt(x, 10)))
+      let newEvokerList = this.evokers
+      let evokerIndex = newEvokerList.indexOf(newEvokerList.find(x => x.id === evokerId))
+      newEvokerList[evokerIndex].currentStage = newTarget
+      newEvokerList[evokerIndex].targetStage = Math.min(this.charData.find(x => x.id === evokerId).maxStage, newTarget + 1)
+      this.props.triggerEvokerChange(newEvokerList)
+      let matIds = Object.keys(cost).map(x => parseInt(x, 10))
       for (let matId of matIds) {
-        newInventory[matId] -= cost[matId]
-      }
-      this.inventory = newInventory
-      this.onSave()
-    },
-    onSave: function () {
-      let save = {}
-      save.evokers = this.evokers
-      save.inventory = this.inventory
-      save = JSON.stringify(save)
-      localStorage.setItem('save', save)
-    },
-    onLoad: function () {
-      let save = localStorage.getItem('save')
-      if (save) {
-        save = JSON.parse(save)
-        this.evokers = save.evokers || []
-        this.inventory = save.inventory || {}
+        this.props.triggerInventoryChange(matId, this.inventory[matId] - cost[matId])
       }
     }
   },
   computed: {
     filterEvokerList: function () {
-      return this.evokers.map((x) => (x.id))
+      return this.evokers.map(x => x.id)
     },
     tableVisible: function () {
       return this.evokers.length > 0

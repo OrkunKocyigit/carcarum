@@ -68,13 +68,13 @@ export default {
     calculateUpgrade: function () {
       let mats = {}
       // Get start char recipe
-      let startRecipe = this.recipes.find((x) => (this.char.startId === x.id))
+      let startRecipe = this.recipes.find(x => this.char.startId === x.id)
       if (startRecipe) {
         let recipes = []
         recipes.push(startRecipe)
         // Iterate until next is not defined
         while (recipes[recipes.length - 1].hasOwnProperty('next')) {
-          let next = this.recipes.find((x) => (recipes[recipes.length - 1].next === x.id))
+          let next = this.recipes.find(x => recipes[recipes.length - 1].next === x.id)
           if (next) {
             recipes.push(next)
           } else {
@@ -82,7 +82,7 @@ export default {
           }
         }
         recipes = recipes.slice(this.currentStage, this.targetStage)
-        let materialList = recipes.map((x) => (x.materials)).flat()
+        let materialList = recipes.map(x => x.materials).flat()
         for (let m of materialList) {
           if (mats.hasOwnProperty(m.id)) {
             mats[m.id] += m.count

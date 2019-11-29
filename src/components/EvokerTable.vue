@@ -16,7 +16,7 @@
       <template
         v-slot:cell(details)="row">
         <b-button
-          :disabled="row.item.currentStage === chars.find((x) => (x.id === row.item.id)).maxStage"
+          :disabled="row.item.currentStage === chars.find(x => x.id === row.item.id).maxStage"
           size="sm"
           class="mb-1"
           variant="primary"
@@ -29,9 +29,9 @@
         v-slot:row-details="row">
         <SummaryTable
           :currentStage="row.item.currentStage"
-          :targetStage="evokerList.find((x) => (x.id === row.item.id)).targetStage"
+          :targetStage="evokerList.find(x => x.id === row.item.id).targetStage"
           :triggerTargetChange="triggerTargetChange.bind(this, row.item.id)"
-          :char="chars.find((x) => (x.id === row.item.id))"
+          :char="chars.find(x => x.id === row.item.id)"
           :triggerInventoryChange="triggerInventoryChange"
           :triggerEvokerUpgrade="triggerEvokerUpgrade"
           :inventory="inventory" />
@@ -97,9 +97,9 @@ export default {
       for (let evoker of this.evokerList) {
         let item = {}
         item.id = evoker.id
-        let char = this.chars.filter((x) => (x.id === item.id))[0]
+        let char = this.chars.find(x => x.id === item.id)
         item.name = this.getTranslation(char.name, 'en')
-        let summon = this.summons.filter((x) => (x.id === char.summonId))[0]
+        let summon = this.summons.find(x => x.id === char.summonId)
         item.summonName = this.getTranslation(summon.name, 'en')
         item.currentStage = evoker.currentStage
         items.push(item)
@@ -112,6 +112,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-</style>

@@ -92,26 +92,28 @@ export default {
   computed: {
     matList: function () {
       let totalCost = []
-      let ids = Object.keys(this.mats).map(x => parseInt(x, 10))
-      let inv = this.inventory
-      let matList = this.materialsList
-      for (let i = 0; i < ids.length; i++) {
-        let matObj = matList.find((x) => (x.id === ids[i]))
-        if (matObj) {
-          let mat = {}
-          mat.id = ids[i]
-          mat.pic = matObj.img
-          mat.name = matObj.name
-          mat.count = this.mats[ids[i]]
-          if (!inv || !inv.hasOwnProperty(mat.id)) {
-            this.triggerInventoryChange(mat.id, 0)
-            mat.own = 0
-          } else {
-            mat.own = inv[mat.id]
+      let matIds = Object.keys(this.mats).map(x => parseInt(x, 10))
+      if (matIds.length > 0) {
+        let inv = this.inventory
+        let matList = this.materialsList
+        for (let i = 0; i < matIds.length; i++) {
+          let matObj = matList.find(x => x.id === matIds[i])
+          if (matObj) {
+            let mat = {}
+            mat.id = matIds[i]
+            mat.pic = matObj.img
+            mat.name = matObj.name
+            mat.count = this.mats[matIds[i]]
+            if (!inv || !inv.hasOwnProperty(mat.id)) {
+              this.triggerInventoryChange(mat.id, 0)
+              mat.own = 0
+            } else {
+              mat.own = inv[mat.id]
+            }
+            mat.progress = Math.min(mat.own / mat.count * 100, 100)
+            mat.tip = this.getTranslation(matObj.tip, 'en')
+            totalCost.push(mat)
           }
-          mat.progress = Math.min(mat.own / mat.count * 100, 100)
-          mat.tip = this.getTranslation(matObj.tip, 'en')
-          totalCost.push(mat)
         }
       }
       return totalCost
