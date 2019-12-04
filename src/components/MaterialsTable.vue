@@ -27,6 +27,7 @@
         v-slot:cell(own)="data">
         <b-form-input
           v-model="data.item.own"
+          @input="(val) => updateProgressBar(val, data)"
           @change="triggerInventoryChange(data.item.id, data.value)"
           size="sm"
           type="number"/>
@@ -34,7 +35,9 @@
       <template
         v-slot:cell(progress)="data">
         <b-progress class="mt-2" :max="100" show-value>
-          <b-progress-bar :value="data.item.progress" variant="success" />
+          <b-progress-bar
+          :value="data.item.progress"
+          variant="success" />
         </b-progress>
       </template>
       <template
@@ -108,7 +111,7 @@ export default {
               this.triggerInventoryChange(mat.id, 0)
               mat.own = 0
             } else {
-              mat.own = inv[mat.id]
+              mat.own = parseInt(inv[mat.id])
             }
             mat.progress = Math.min(mat.own / mat.count * 100, 100)
             mat.tip = this.getTranslation(matObj.tip, 'en')
@@ -130,7 +133,11 @@ export default {
     }
   },
   methods: {
-    getTranslation: getString
+    getTranslation: getString,
+    updateProgressBar: function (val, row) {
+      val = parseInt(val)
+      this.$set(row.item, 'progress', Math.min(val / row.item.count * 100, 100))
+    }
   }
 }
 </script>

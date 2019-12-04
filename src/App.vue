@@ -72,6 +72,7 @@ export default {
     },
     onInventoryChanged: function (matId, newItem) {
       this.$set(this.inventory, matId, newItem)
+      this.onSave()
     }
   },
   computed: {
