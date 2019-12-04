@@ -67,11 +67,11 @@ export default {
     inventory: Object,
     triggerInventoryChange: {
       type: Function,
-      default: void (0)
+      default: () => void (0)
     },
     triggerEvokerUpgrade: {
       type: Function,
-      default: void (0)
+      default: () => void (0)
     },
     readOnly: {
       type: Boolean,
