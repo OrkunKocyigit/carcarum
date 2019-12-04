@@ -11,7 +11,7 @@
          <b-form-select v-model="selectedStage" id="select-stage" :options="stageOptions" :disabled="hasAllEvokers" />
        </b-form-group>
      </div>
-     <b-button block variant="secondary" :disabled="hasAllEvokers" @click="onEvokerAdded">Add Evoker</b-button>
+     <b-button block variant="primary" :disabled="hasAllEvokers" @click="onEvokerAdded">Add Evoker</b-button>
    </b-form>
  </div>
 </template>

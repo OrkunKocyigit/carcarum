@@ -4,6 +4,20 @@
     <CharSelector
       :addEvoker="onEvokerAdded"
       :filteredEvokers="filterEvokerList"/>
+    <b-button
+      v-b-toggle.e-summary
+      block
+      class="mt-2 mb-2"
+      variant="secondary">
+      Show Overall Progress
+    </b-button>
+    <b-collapse id="e-summary">
+      <b-card>
+        <ProgressTable
+          :evokers="evokers"
+          :inventory="inventory"/>
+      </b-card>
+    </b-collapse>
     <EvokerTable
       v-if="tableVisible"
       :evokerList="evokers"
@@ -11,19 +25,20 @@
       :triggerTargetChange="onTargetChanged"
       :inventory="inventory"
       :triggerInventoryChange="props.triggerInventoryChange"
-      :triggerEvokerUpgrade="onEvokerUpgraded"
-      class="mt-1"/>
+      :triggerEvokerUpgrade="onEvokerUpgraded"/>
   </div>
 </template>
 
 <script>
 import CharSelector from '../components/CharSelector'
 import EvokerTable from '../components/EvokerTable'
+import ProgressTable from '../components/ProgressTable'
 import Chars from '../assets/chars'
 export default {
   components: {
     CharSelector: CharSelector,
-    EvokerTable: EvokerTable
+    EvokerTable: EvokerTable,
+    ProgressTable: ProgressTable
   },
   props: ['props'],
   data: function () {

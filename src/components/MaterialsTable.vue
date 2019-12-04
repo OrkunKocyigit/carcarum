@@ -29,6 +29,7 @@
           v-model="data.item.own"
           @input="(val) => updateProgressBar(val, data)"
           @change="triggerInventoryChange(data.item.id, data.value)"
+          :disabled="readOnly"
           size="sm"
           type="number"/>
       </template>
@@ -46,6 +47,7 @@
       </template>
     </b-table>
     <b-button
+      v-if="!noToggle"
       variant="primary"
       block
       :disabled="!hasAllMats"
@@ -60,7 +62,26 @@ import getString from '../translate'
 import Materials from '../assets/materials'
 export default {
   name: 'MaterialsTable',
-  props: ['mats', 'inventory', 'triggerInventoryChange', 'triggerEvokerUpgrade'],
+  props: {
+    mats: Object,
+    inventory: Object,
+    triggerInventoryChange: {
+      type: Function,
+      default: void (0)
+    },
+    triggerEvokerUpgrade: {
+      type: Function,
+      default: void (0)
+    },
+    readOnly: {
+      type: Boolean,
+      default: false
+    },
+    noToggle: {
+      type: Boolean,
+      default: false
+    }
+  },
   data: function () {
     return {
       fields: [
