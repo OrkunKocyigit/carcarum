@@ -98,16 +98,21 @@ export default {
         result.currentStage = evoker.currentStage
         result.targetStage = evoker.targetStage
         // Get Progress %
-        let upgradeMats = this.calculateUpgrade(evoker.id, evoker.currentStage, evoker.targetStage)
-        let progress = 0
-        let length = 0
-        for (let m of upgradeMats) {
-          length++
-          if (this.inventory.hasOwnProperty(m.id)) {
-            progress += Math.min(100, parseInt(this.inventory[m.id] * 100 / m.count))
+        if (result.currentStage === result.targetStage) {
+          result.progress = 100
+        } else {
+          let progress = 0
+          let length = 0
+          let upgradeMats = this.calculateUpgrade(evoker.id, evoker.currentStage, evoker.targetStage)
+          for (let m of upgradeMats) {
+            length++
+            if (this.inventory.hasOwnProperty(m.id)) {
+              progress += Math.min(100, parseInt(this.inventory[m.id] * 100 / m.count))
+            }
           }
+          result.progress = progress / length
         }
-        result.progress = progress / length
+
         progressList.push(result)
       }
       return progressList

@@ -159,7 +159,7 @@
     "id": 27,
     "name": "Hanged Man Idean",
     "img": "img/Hanged_Man_Idean.jpg",
-    "tip": "tip-idian"
+    "tip": "tip-idean"
   },
   {
     "id": 28,
@@ -237,7 +237,7 @@
     "id": 40,
     "name": "Tower Idean",
     "img": "img/Tower_Idean.jpg",
-    "tip": "tip-idian"
+    "tip": "tip-idean"
   },
   {
     "id": 41,
@@ -255,13 +255,13 @@
     "id": 43,
     "name": "Moon Idean",
     "img": "img/Moon_Idean.jpg",
-    "tip": "tip-idian"
+    "tip": "tip-idean"
   },
   {
     "id": 44,
     "name": "Translucent Silk",
     "img": "img/Translucent_Silk.jpg",
-    "tip": "tip-translucent-silk"
+    "tip": "tip-rusty-eave"
   },
   {
     "id": 45,

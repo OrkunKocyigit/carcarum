@@ -11,7 +11,8 @@
       variant="secondary">
       Show Overall Progress
     </b-button>
-    <b-collapse id="e-summary">
+    <b-collapse
+      id="e-summary">
       <b-card>
         <ProgressTable
           :evokers="evokers"
