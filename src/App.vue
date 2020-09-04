@@ -89,7 +89,7 @@ export default {
   },
   computed: {
     childProps: function () {
-      let props = {}
+      const props = {}
       if (this.$router.currentRoute.name === 'ecalc') {
         props.evokers = this.evokers || []
         props.inventory = this.inventory || {}

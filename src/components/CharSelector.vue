@@ -67,10 +67,10 @@ export default {
   },
   computed: {
     stageOptions: function () {
-      let stages = []
+      const stages = []
       if (!this.hasAllEvokers) {
-        let char = this.filteredChars.find(x => x.id === this.selectedChar)
-        let generator = stageNameGenerator(0, char.maxStage, 'en')
+        const char = this.filteredChars.find(x => x.id === this.selectedChar)
+        const generator = stageNameGenerator(0, char.maxStage, 'en')
         let result = generator.next()
         for (let i = 0; !result.done; i++) {
           stages.push({ value: i, text: result.value })

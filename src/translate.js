@@ -2,7 +2,7 @@ const Strings = require('./assets/strings')
 
 export default function getString (key, language, index) {
   let message = 'Unknown Message'
-  if (Strings.hasOwnProperty(key)) {
+  if (Object.prototype.hasOwnProperty.call(Strings, key)) {
     let value = Strings[key]
     if (Array.isArray(value)) {
       if (index === undefined || index < 0) {
@@ -11,7 +11,7 @@ export default function getString (key, language, index) {
         value = value[index]
       }
     }
-    if (value && value.hasOwnProperty(language)) {
+    if (value && Object.prototype.hasOwnProperty.call(value, language)) {
       message = value[language]
     }
   }

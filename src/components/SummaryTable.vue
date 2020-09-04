@@ -2,20 +2,16 @@
   <b-card>
     <div>
       <b-form>
-        <div
-          class="row">
+        <div class="row">
           <b-form-group
             class="col-lg-6 col-sm-12"
             id="char-select-group"
             label="Current Stage:"
-            label-for="select-current">
-            <b-form-select
-              v-model="currentStage"
-              id="select-current"
-              disabled>
-              <option
-                :value="currentStage">
-                {{getTranslation('stages', 'en', currentStage)}}
+            label-for="select-current"
+          >
+            <b-form-select v-model="currentStage" id="select-current" disabled>
+              <option :value="currentStage">
+                {{ getTranslation("stages", "en", currentStage) }}
               </option>
             </b-form-select>
           </b-form-group>
@@ -23,12 +19,14 @@
             class="col-lg-6 col-sm-12"
             id="stage-select-group"
             label="Target Stage:"
-            label-for="select-target">
+            label-for="select-target"
+          >
             <b-form-select
               :value="targetStage"
               id="select-target"
               :options="upgradeOptions"
-              @change="onTargetChanged"/>
+              @change="onTargetChanged"
+            />
           </b-form-group>
         </div>
       </b-form>
@@ -36,7 +34,8 @@
         :mats="result"
         :inventory="inventory"
         :triggerInventoryChange="triggerInventoryChange"
-        :triggerEvokerUpgrade="onEvokerUpgrade"/>
+        :triggerEvokerUpgrade="onEvokerUpgrade"
+      />
     </div>
   </b-card>
 </template>
@@ -49,7 +48,15 @@ import Recipes from '../assets/recipes'
 export default {
   name: 'SummaryTable',
   components: { MaterialsTable },
-  props: ['currentStage', 'targetStage', 'char', 'triggerTargetChange', 'inventory', 'triggerInventoryChange', 'triggerEvokerUpgrade'],
+  props: [
+    'currentStage',
+    'targetStage',
+    'char',
+    'triggerTargetChange',
+    'inventory',
+    'triggerInventoryChange',
+    'triggerEvokerUpgrade'
+  ],
   data: function () {
     return {
       result: {},
@@ -66,15 +73,17 @@ export default {
       this.triggerTargetChange(val)
     },
     calculateUpgrade: function () {
-      let mats = {}
+      const mats = {}
       // Get start char recipe
-      let startRecipe = this.recipes.find(x => this.char.startId === x.id)
+      const startRecipe = this.recipes.find(x => this.char.startId === x.id)
       if (startRecipe) {
         let recipes = []
         recipes.push(startRecipe)
         // Iterate until next is not defined
-        while (recipes[recipes.length - 1].hasOwnProperty('next')) {
-          let next = this.recipes.find(x => recipes[recipes.length - 1].next === x.id)
+        while (Object.prototype.hasOwnProperty.call(recipes[recipes.length - 1], 'next')) {
+          const next = this.recipes.find(
+            x => recipes[recipes.length - 1].next === x.id
+          )
           if (next) {
             recipes.push(next)
           } else {
@@ -82,9 +91,9 @@ export default {
           }
         }
         recipes = recipes.slice(this.currentStage, this.targetStage)
-        let materialList = recipes.map(x => x.materials).flat()
-        for (let m of materialList) {
-          if (mats.hasOwnProperty(m.id)) {
+        const materialList = recipes.map(x => x.materials).flat()
+        for (const m of materialList) {
+          if (Object.prototype.hasOwnProperty.call(mats, m.id)) {
             mats[m.id] += m.count
           } else {
             mats[m.id] = m.count
@@ -99,8 +108,12 @@ export default {
   },
   computed: {
     upgradeOptions: function () {
-      let stages = []
-      let generator = stageNameGenerator(this.currentStage + 1, this.char.maxStage, 'en')
+      const stages = []
+      const generator = stageNameGenerator(
+        this.currentStage + 1,
+        this.char.maxStage,
+        'en'
+      )
       let result = generator.next()
       for (let i = this.currentStage + 1; !result.done; i++) {
         stages.push({ value: i, text: result.value })
@@ -117,6 +130,4 @@ export default {
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -61,7 +61,7 @@ export default {
   name: 'EvokerTable',
   props: ['evokerList', 'removeEvoker', 'triggerTargetChange', 'inventory', 'triggerInventoryChange', 'triggerEvokerUpgrade'],
   components: {
-    'SummaryTable': SummaryTable
+    SummaryTable: SummaryTable
   },
   data: function () {
     return {
@@ -93,13 +93,13 @@ export default {
   },
   computed: {
     tableItems: function () {
-      let items = []
-      for (let evoker of this.evokerList) {
-        let item = {}
+      const items = []
+      for (const evoker of this.evokerList) {
+        const item = {}
         item.id = evoker.id
-        let char = this.chars.find(x => x.id === item.id)
+        const char = this.chars.find(x => x.id === item.id)
         item.name = this.getTranslation(char.name, 'en')
-        let summon = this.summons.find(x => x.id === char.summonId)
+        const summon = this.summons.find(x => x.id === char.summonId)
         item.summonName = this.getTranslation(summon.name, 'en')
         item.currentStage = evoker.currentStage
         items.push(item)

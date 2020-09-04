@@ -7,9 +7,9 @@
       stacked="md"
       :fields="fields"
       :items="matList"
-      show-empty>
-      <template
-        v-slot:cell(pic)="data">
+      show-empty
+    >
+      <template v-slot:cell(pic)="data">
         <b-img
           thumbnail
           left
@@ -17,33 +17,29 @@
           fluid
           width="64"
           height="64"
-          alt=""/>
+          alt=""
+        />
       </template>
-      <template
-        v-slot:cell(count)="data">
-        {{data.item.count}}
+      <template v-slot:cell(count)="data">
+        {{ data.item.count }}
       </template>
-      <template
-        v-slot:cell(own)="data">
+      <template v-slot:cell(own)="data">
         <b-form-input
           v-model="data.item.own"
-          @input="(val) => updateProgressBar(val, data)"
+          @input="val => updateProgressBar(val, data)"
           @change="triggerInventoryChange(data.item.id, data.value)"
           :disabled="readOnly"
           size="sm"
-          type="number"/>
+          type="number"
+        />
       </template>
-      <template
-        v-slot:cell(progress)="data">
+      <template v-slot:cell(progress)="data">
         <b-progress class="mt-2" :max="100" show-value>
-          <b-progress-bar
-          :value="data.item.progress"
-          variant="success" />
+          <b-progress-bar :value="data.item.progress" variant="success" />
         </b-progress>
       </template>
-      <template
-        v-slot:cell(tip)="data">
-        {{data.item.tip}}
+      <template v-slot:cell(tip)="data">
+        {{ data.item.tip }}
       </template>
     </b-table>
     <b-button
@@ -51,7 +47,8 @@
       variant="primary"
       block
       :disabled="!hasAllMats"
-      @click="triggerEvokerUpgrade(mats)">
+      @click="triggerEvokerUpgrade(mats)"
+    >
       Upgrade
     </b-button>
   </div>
@@ -67,11 +64,11 @@ export default {
     inventory: Object,
     triggerInventoryChange: {
       type: Function,
-      default: () => void (0)
+      default: () => 0
     },
     triggerEvokerUpgrade: {
       type: Function,
-      default: () => void (0)
+      default: () => 0
     },
     readOnly: {
       type: Boolean,
@@ -115,26 +112,26 @@ export default {
   },
   computed: {
     matList: function () {
-      let totalCost = []
-      let matIds = Object.keys(this.mats).map(x => parseInt(x, 10))
+      const totalCost = []
+      const matIds = Object.keys(this.mats).map(x => parseInt(x, 10))
       if (matIds.length > 0) {
-        let inv = this.inventory
-        let matList = this.materialsList
+        const inv = this.inventory
+        const matList = this.materialsList
         for (let i = 0; i < matIds.length; i++) {
-          let matObj = matList.find(x => x.id === matIds[i])
+          const matObj = matList.find(x => x.id === matIds[i])
           if (matObj) {
-            let mat = {}
+            const mat = {}
             mat.id = matIds[i]
             mat.pic = matObj.img
             mat.name = matObj.name
             mat.count = this.mats[matIds[i]]
-            if (!inv || !inv.hasOwnProperty(mat.id)) {
+            if (!inv || !Object.prototype.hasOwnProperty.call(inv, mat.id)) {
               this.triggerInventoryChange(mat.id, 0)
               mat.own = 0
             } else {
               mat.own = parseInt(inv[mat.id])
             }
-            mat.progress = Math.min(mat.own / mat.count * 100, 100)
+            mat.progress = Math.min((mat.own / mat.count) * 100, 100)
             mat.tip = this.getTranslation(matObj.tip, 'en')
             totalCost.push(mat)
           }
@@ -144,7 +141,7 @@ export default {
     },
     hasAllMats: function () {
       let result = true
-      for (let mat of this.matList) {
+      for (const mat of this.matList) {
         if (mat.progress < 100) {
           result = false
           break
@@ -157,7 +154,11 @@ export default {
     getTranslation: getString,
     updateProgressBar: function (val, row) {
       val = parseInt(val)
-      this.$set(row.item, 'progress', Math.min(val / row.item.count * 100, 100))
+      this.$set(
+        row.item,
+        'progress',
+        Math.min((val / row.item.count) * 100, 100)
+      )
     }
   }
 }
